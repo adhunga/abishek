@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abishek Dhungana - CRISPR/CAS Enthusiast</title>
+    <title>Abishek Dhungana - Bioengineering Researcher</title>
     <style>
         * {
             margin: 0;
@@ -15,77 +15,19 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            overflow-x: hidden;
+            background: url('images/template.jpg') center/cover no-repeat fixed;
+            min-height: 100vh;
         }
 
-        /* CRISPR DNA Helix Background */
-        .dna-background {
+        /* Overlay for better text readability */
+        .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: rgba(0, 0, 0, 0.4);
             z-index: -1;
-            background: 
-                linear-gradient(rgba(15, 15, 35, 0.85), rgba(15, 15, 35, 0.85)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="dna" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="2" fill="%2300d4ff" opacity="0.3"/><circle cx="75" cy="75" r="2" fill="%237c3aed" opacity="0.3"/><path d="M20,20 Q50,40 80,20 Q50,0 20,20" stroke="%2300d4ff" stroke-width="1" fill="none" opacity="0.2"/><path d="M20,80 Q50,60 80,80 Q50,100 20,80" stroke="%237c3aed" stroke-width="1" fill="none" opacity="0.2"/></pattern></defs><rect width="100%25" height="100%25" fill="url(%23dna)"/></svg>'),
-                linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d2d5f 100%);
-            background-size: 200px 200px, cover;
-        }
-
-        .dna-helix {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
-        }
-
-        .helix-strand {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00d4ff, #7c3aed, transparent);
-            animation: rotate 20s linear infinite;
-        }
-
-        .helix-strand:nth-child(1) { top: 10%; animation-delay: 0s; }
-        .helix-strand:nth-child(2) { top: 20%; animation-delay: -2s; }
-        .helix-strand:nth-child(3) { top: 30%; animation-delay: -4s; }
-        .helix-strand:nth-child(4) { top: 40%; animation-delay: -6s; }
-        .helix-strand:nth-child(5) { top: 50%; animation-delay: -8s; }
-        .helix-strand:nth-child(6) { top: 60%; animation-delay: -10s; }
-        .helix-strand:nth-child(7) { top: 70%; animation-delay: -12s; }
-        .helix-strand:nth-child(8) { top: 80%; animation-delay: -14s; }
-
-        @keyframes rotate {
-            0% { transform: rotateY(0deg) rotateZ(0deg); }
-            100% { transform: rotateY(360deg) rotateZ(360deg); }
-        }
-
-        /* Floating particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #00d4ff;
-            border-radius: 50%;
-            animation: float 15s infinite linear;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
         /* Navigation */
@@ -93,11 +35,11 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 15, 35, 0.9);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
         .nav-container {
@@ -110,68 +52,53 @@
         }
 
         .logo {
-            font-size: 1.8em;
+            font-size: 1.5em;
             font-weight: bold;
-            color: #00d4ff;
+            color: #2c3e50;
             text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover {
-            text-shadow: 0 0 20px #00d4ff;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 30px;
         }
 
         .nav-links a {
-            color: #fff;
+            color: #2c3e50;
             text-decoration: none;
             font-weight: 500;
-            font-size: 1.1em;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 10px 20px;
-            border-radius: 25px;
+            transition: color 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 20px;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: #00d4ff;
-            background: rgba(0, 212, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            color: #3498db;
+            background: rgba(52, 152, 219, 0.1);
         }
 
-        /* Main Content Container */
+        /* Main Content */
         .content {
-            margin-top: 100px;
-            min-height: calc(100vh - 100px);
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
         }
 
-        /* Page Sections */
         .page-section {
             display: none;
-            min-height: calc(100vh - 100px);
+            min-height: calc(100vh - 80px);
             padding: 60px 40px;
         }
 
         .page-section.active {
             display: block;
-            animation: fadeInUp 0.8s ease;
+            animation: fadeIn 0.6s ease;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .container {
@@ -183,76 +110,52 @@
         .hero {
             display: flex;
             align-items: center;
-            justify-content: space-between;
             min-height: 80vh;
             gap: 60px;
         }
 
         .hero-content {
             flex: 1;
-            color: #fff;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .profile-section {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 40px;
+        .hero-visual {
+            flex: 1;
+            text-align: center;
         }
 
         .profile-picture {
-            width: 200px;
-            height: 200px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #00d4ff, #7c3aed);
-            padding: 4px;
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
-        }
-
-        .profile-picture img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            background: #2a2a4a;
-        }
-
-        /* Placeholder for profile picture */
-        .profile-placeholder {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #2a2a4a, #3a3a5a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3em;
-            color: #00d4ff;
-            font-weight: bold;
+            border: 6px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            background: url('images/profile.jpg') center/cover no-repeat;
+            margin: 0 auto;
         }
 
         .hero-title {
-            font-size: 4em;
+            font-size: 3.5em;
             font-weight: bold;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #00d4ff, #7c3aed, #ff6b9d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
+            margin-bottom: 15px;
+            color: #2c3e50;
         }
 
         .hero-subtitle {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            color: #a0a0a0;
+            font-size: 1.4em;
+            color: #3498db;
+            margin-bottom: 25px;
+            font-weight: 600;
         }
 
         .hero-description {
-            font-size: 1.2em;
+            font-size: 1.1em;
             line-height: 1.8;
-            margin-bottom: 40px;
-            color: #ccc;
+            margin-bottom: 35px;
+            color: #555;
         }
 
         .cta-buttons {
@@ -261,10 +164,10 @@
         }
 
         .btn {
-            padding: 15px 30px;
+            padding: 12px 30px;
             border: none;
-            border-radius: 30px;
-            font-size: 1.1em;
+            border-radius: 25px;
+            font-size: 1em;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -273,155 +176,114 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #00d4ff, #7c3aed);
+            background: #3498db;
             color: white;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.4);
+            background: #2980b9;
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
             background: transparent;
-            color: #00d4ff;
-            border: 2px solid #00d4ff;
+            color: #3498db;
+            border: 2px solid #3498db;
         }
 
         .btn-secondary:hover {
-            background: #00d4ff;
-            color: #0f0f23;
+            background: #3498db;
+            color: white;
         }
 
-        .hero-visual {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .dna-structure {
-            width: 400px;
-            height: 400px;
-            position: relative;
-        }
-
-        .dna-circle {
-            position: absolute;
-            border: 2px solid;
-            border-radius: 50%;
-            animation: spin 20s linear infinite;
-        }
-
-        .dna-circle:nth-child(1) {
-            width: 100%;
-            height: 100%;
-            border-color: rgba(0, 212, 255, 0.6);
-            animation-duration: 20s;
-        }
-
-        .dna-circle:nth-child(2) {
-            width: 80%;
-            height: 80%;
-            top: 10%;
-            left: 10%;
-            border-color: rgba(124, 58, 237, 0.6);
-            animation-duration: 15s;
-            animation-direction: reverse;
-        }
-
-        .dna-circle:nth-child(3) {
-            width: 60%;
-            height: 60%;
-            top: 20%;
-            left: 20%;
-            border-color: rgba(255, 107, 157, 0.6);
-            animation-duration: 10s;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Content Sections */
+        /* Content Cards */
         .section-title {
-            font-size: 3em;
+            font-size: 2.5em;
             color: #fff;
             margin-bottom: 40px;
             text-align: center;
-            background: linear-gradient(135deg, #00d4ff, #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .content-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
         .content-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
-            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateY(-5px);
         }
 
         .card-title {
-            font-size: 1.5em;
-            color: #00d4ff;
-            margin-bottom: 20px;
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .card-text {
-            color: #ccc;
-            line-height: 1.8;
+            color: #555;
+            line-height: 1.7;
         }
 
-        /* Research specific styles */
+        /* Research Section */
         .research-highlight {
-            background: rgba(0, 212, 255, 0.1);
-            border-left: 4px solid #00d4ff;
-            padding: 30px;
-            margin: 30px 0;
-            border-radius: 10px;
+            background: rgba(52, 152, 219, 0.9);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            text-align: center;
         }
 
-        .publication-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 25px;
-            margin: 20px 0;
+        .research-highlight h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .publications-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
             border-radius: 15px;
-            border-left: 4px solid #7c3aed;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .pub-title {
-            color: #fff;
+            color: #2c3e50;
             font-size: 1.2em;
             font-weight: 600;
             margin-bottom: 10px;
         }
 
         .pub-authors {
-            color: #a0a0a0;
+            color: #666;
             font-size: 0.95em;
             margin-bottom: 8px;
         }
 
         .pub-date {
-            color: #00d4ff;
+            color: #3498db;
             font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .publication-item {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
         }
 
         /* Mobile Responsive */
@@ -431,42 +293,35 @@
             }
 
             .nav-links {
-                gap: 20px;
+                gap: 15px;
             }
 
             .nav-links a {
-                font-size: 1em;
-                padding: 8px 15px;
+                font-size: 0.9em;
+                padding: 6px 12px;
             }
 
             .hero {
-                flex-direction: column;
+                flex-direction: column-reverse;
                 text-align: center;
-                gap: 40px;
+                gap: 30px;
             }
 
-            .profile-section {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
+            .hero-content {
+                padding: 30px;
             }
 
             .profile-picture {
-                width: 150px;
-                height: 150px;
+                width: 200px;
+                height: 200px;
             }
 
             .hero-title {
                 font-size: 2.5em;
             }
 
-            .hero-visual {
-                order: -1;
-            }
-
-            .dna-structure {
-                width: 250px;
-                height: 250px;
+            .hero-subtitle {
+                font-size: 1.2em;
             }
 
             .cta-buttons {
@@ -481,29 +336,39 @@
             .page-section {
                 padding: 40px 20px;
             }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .research-highlight,
+            .publications-section {
+                padding: 25px;
+            }
+        }
+
+        /* Simple animations */
+        .profile-picture {
+            transition: transform 0.3s ease;
+        }
+
+        .profile-picture:hover {
+            transform: scale(1.05);
+        }
+
+        .logo:hover {
+            color: #3498db;
         }
     </style>
 </head>
 <body>
-    <!-- CRISPR DNA Background -->
-    <div class="dna-background">
-        <div class="dna-helix">
-            <div class="helix-strand"></div>
-            <div class="helix-strand"></div>
-            <div class="helix-strand"></div>
-            <div class="helix-strand"></div>
-            <div class="helix-strand"></div>
-            <div class="helix-strand"></div>
-            <div class="helix-strand"></div>
-            <div class="helix-strand"></div>
-        </div>
-        <div class="particles" id="particles"></div>
-    </div>
+    <div class="overlay"></div>
 
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">AD</a>
+            <a href="#" class="logo">Abishek Dhungana</a>
             <ul class="nav-links">
                 <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
                 <li><a href="#" class="nav-link" data-page="about">About Me</a></li>
@@ -520,31 +385,20 @@
             <div class="container">
                 <div class="hero">
                     <div class="hero-content">
-                        <div class="profile-section">
-                            <div class="profile-picture">
-                                <div class="profile-placeholder">AD</div>
-                                <!-- Replace with: <img src="your-profile-photo.jpg" alt="Abishek Dhungana"> -->
-                            </div>
-                            <div>
-                                <h1 class="hero-title">Abishek Dhungana</h1>
-                                <div class="hero-subtitle">CRSIPR/CAS Enthusiast</div>
-                            </div>
-                        </div>
+                        <h1 class="hero-title">Abishek Dhungana</h1>
+                        <div class="hero-subtitle">Bioengineering Researcher</div>
                         <p class="hero-description">
-                            Hello, I am a PhD student at Clemson University. I am exploring the future of medicine through cutting-edge CRISPR technology and cellular engineering. 
-                             My study focuses on ex-vivo gene editing and inherited liver metabolic diseases at Clemson University.
+                            Ph.D. student specializing in cellular and genetic engineering with focus on ex-vivo 
+                            gene editing and transplant research at Clemson University. Advancing precision medicine 
+                            through CRISPR technology and innovative therapeutic approaches.
                         </p>
                         <div class="cta-buttons">
                             <a href="#" class="btn btn-primary" data-page="research">View Research</a>
-                            <a href="#" class="btn btn-secondary" data-page="about">Learn More</a>
+                            <a href="#" class="btn btn-secondary" data-page="about">About Me</a>
                         </div>
                     </div>
                     <div class="hero-visual">
-                        <div class="dna-structure">
-                            <div class="dna-circle"></div>
-                            <div class="dna-circle"></div>
-                            <div class="dna-circle"></div>
-                        </div>
+                        <div class="profile-picture"></div>
                     </div>
                 </div>
             </div>
@@ -558,50 +412,49 @@
                     <div class="content-card">
                         <h3 class="card-title">Background</h3>
                         <p class="card-text">
-                            I am a dedicated Ph.D. student in Bioengineering at Clemson University, working under the guidance of Dr. Renee Cottle. 
-                            My journey began with mechanical engineering, where I achieved a 3.902/4.0 GPA, before transitioning into the fascinating 
-                            world of cellular and genetic engineering.
+                            Ph.D. student in Bioengineering at Clemson University under Dr. Renee Cottle. 
+                            Transitioned from mechanical engineering (3.902/4.0 GPA) to cutting-edge genetic 
+                            research, bringing interdisciplinary expertise to cellular engineering.
                         </p>
                     </div>
                     <div class="content-card">
-                        <h3 class="card-title">Expertise</h3>
+                        <h3 class="card-title">Research Focus</h3>
                         <p class="card-text">
-                            I specialize in ex-vivo gene editing and transplant research, with proficiency in electroporation, cell isolation, 
-                            PCR, fluorescence imaging, and advanced computational modeling. My interdisciplinary approach combines engineering 
-                            principles with cutting-edge biotechnology.
+                            Specializing in ex-vivo gene editing and transplant research using CRISPR-Cas9 
+                            technology. Developing clinical-grade electroporation systems for treating 
+                            inherited metabolic liver diseases through precise genetic modifications.
                         </p>
                     </div>
                     <div class="content-card">
-                        <h3 class="card-title">Vision</h3>
+                        <h3 class="card-title">Technical Expertise</h3>
                         <p class="card-text">
-                            My goal is to develop innovative gene therapy solutions for inherited metabolic liver diseases. Through CRISPR-Cas9 
-                            technology and clinical-grade electroporation systems, I aim to translate laboratory discoveries into life-changing 
-                            treatments for patients.
-                        </p>
-                    </div>
-                    <div class="content-card">
-                        <h3 class="card-title">Technical Skills</h3>
-                        <p class="card-text">
-                            Cell Culture • Gene Editing • CRISPR-Cas9 • Electroporation • 3D Scaffolds • Mechanical Testing • 
-                            ANSYS • COMSOL • SolidWorks • Fluorescence Imaging • Animal Studies • PCR • SEM Microscopy
+                            Proficient in cell culture, gene editing, electroporation, PCR, fluorescence 
+                            imaging, 3D scaffolds, mechanical testing, and computational modeling using 
+                            ANSYS, COMSOL, and various CAD software.
                         </p>
                     </div>
                     <div class="content-card">
                         <h3 class="card-title">Education</h3>
                         <p class="card-text">
-                            <strong>Ph.D. in Bioengineering</strong><br>
-                            Clemson University (2024 - Present)<br><br>
-                            <strong>B.E. in Mechanical Engineering</strong><br>
-                            Nitte Meenakshi Institute of Technology<br>
-                            GPA: 3.902/4.0 (2018-2022)
+                            <strong>Ph.D. Bioengineering</strong> - Clemson University (2024-Present)<br>
+                            <strong>B.E. Mechanical Engineering</strong> - Nitte Meenakshi Institute (2018-2022)<br>
+                            GPA: 3.902/4.0
                         </p>
                     </div>
                     <div class="content-card">
-                        <h3 class="card-title">Recognition</h3>
+                        <h3 class="card-title">Awards & Recognition</h3>
                         <p class="card-text">
-                            Gold Medalist in Experimental Methods in Fluid Mechanics (NPTEL-IIT Guwahati) • 
-                            Best Paper Presentation Award • ASHRAE National Quiz Competition (2nd Place) • 
-                            Multiple conference presentations and research publications
+                            Gold Medalist - Experimental Methods in Fluid Mechanics (NPTEL-IIT Guwahati)<br>
+                            Best Paper Presentation Award<br>
+                            ASHRAE National Quiz Competition - Second Place
+                        </p>
+                    </div>
+                    <div class="content-card">
+                        <h3 class="card-title">Vision</h3>
+                        <p class="card-text">
+                            Committed to translating laboratory discoveries into life-changing treatments 
+                            for patients with genetic diseases. Bridging engineering principles with 
+                            biotechnology to advance precision medicine.
                         </p>
                     </div>
                 </div>
@@ -614,54 +467,57 @@
                 <h2 class="section-title">Research</h2>
                 
                 <div class="research-highlight">
-                    <h3 class="card-title">Current Focus: CRISPR-Cas9 Gene Therapy</h3>
-                    <p class="card-text">
-                        My research centers on developing and validating clinical-grade electroporation systems for CRISPR-Cas9 
-                        mediated gene therapy in primary hepatocytes. This work aims to correct inherited metabolic liver diseases 
-                        through precise genetic modifications, potentially offering new hope for patients with previously untreatable conditions.
+                    <h3>CRISPR-Cas9 Gene Therapy for Liver Diseases</h3>
+                    <p>
+                        Developing and validating clinical-grade electroporation systems for CRISPR-Cas9 
+                        mediated gene therapy in primary hepatocytes to correct inherited metabolic liver diseases.
                     </p>
                 </div>
 
-                <h3 style="color: #00d4ff; font-size: 2em; margin: 40px 0 30px 0; text-align: center;">Recent Publications</h3>
+                <div class="publications-section">
+                    <h3 style="color: #2c3e50; margin-bottom: 30px; font-size: 1.6em;">Recent Publications</h3>
 
-                <div class="publication-item">
-                    <div class="pub-title">One shock, not one cure: Electroporation reveals disease-specific constraints in hepatocyte gene editing therapy</div>
-                    <div class="pub-authors">Callie Clark, Menam Pokhrel, Benjamin Aurthur, Pramita Suresh, Ilayda Ates, Justin Gibson, <strong>Abishek Dhungana</strong>, Ryan Mehlem, Andrew Boysia, Mugdha V. Padalkar, Achala Pokhrel, Jing Echesabal-Chen, Anne Vonada, Alexis Stamatikos, Olga V. Savinova, Markus Grompe, Renee N. Cottle</div>
-                    <div class="pub-date">Under Review • June 2025</div>
+                    <div class="publication-item">
+                        <div class="pub-title">One shock, not one cure: Electroporation reveals disease-specific constraints in hepatocyte gene editing therapy</div>
+                        <div class="pub-authors">Callie Clark, Menam Pokhrel, Benjamin Aurthur, Pramita Suresh, Ilayda Ates, Justin Gibson, <strong>Abishek Dhungana</strong>, Ryan Mehlem, Andrew Boysia, Mugdha V. Padalkar, Achala Pokhrel, Jing Echesabal-Chen, Anne Vonada, Alexis Stamatikos, Olga V. Savinova, Markus Grompe, Renee N. Cottle</div>
+                        <div class="pub-date">Under Review • June 2025</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-title">Validation of clinical-grade electroporation systems for CRISPR-Cas9 mediated gene therapy in primary hepatocytes</div>
+                        <div class="pub-authors">Justin Gibson*, <strong>Abishek Dhungana*</strong>, Menam Pokhrel, Benjamin Arthur, Pramita Suresh, Olumide Adebayo, Renee Cottle (*Equal Contribution)</div>
+                        <div class="pub-date">March 2025</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-title">Impact of Bifurcation and Bifurcation Angle on the Hemodynamics of Coronary Arteries</div>
+                        <div class="pub-authors"><strong>Abishek Dhungana</strong>, Abdulrajak Buradi, Prabin Dahal, Bhaskar Jyoti Bora</div>
+                        <div class="pub-date">April 2023</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-title">Influence of Blockage on Hemodynamics of Coronary Arteries: A Numerical Investigation</div>
+                        <div class="pub-authors">Prabin Dahal, <strong>Abishek Dhungana</strong>, Aditya Vikram, Abdulrajak Buradi, B. A. Praveena, N. Kapilan</div>
+                        <div class="pub-date">July 2023</div>
+                    </div>
                 </div>
 
-                <div class="publication-item">
-                    <div class="pub-title">Validation of clinical-grade electroporation systems for CRISPR-Cas9 mediated gene therapy in primary hepatocytes</div>
-                    <div class="pub-authors">Justin Gibson*, <strong>Abishek Dhungana*</strong>, Menam Pokhrel, Benjamin Arthur, Pramita Suresh, Olumide Adebayo, Renee Cottle (*Equal Contribution)</div>
-                    <div class="pub-date">March 2025</div>
-                </div>
-
-                <div class="publication-item">
-                    <div class="pub-title">Impact of Bifurcation and Bifurcation Angle on the Hemodynamics of Coronary Arteries</div>
-                    <div class="pub-authors"><strong>Abishek Dhungana</strong>, Abdulrajak Buradi, Prabin Dahal, Bhaskar Jyoti Bora</div>
-                    <div class="pub-date">April 2023</div>
-                </div>
-
-                <div class="content-grid" style="margin-top: 60px;">
+                <div class="content-grid" style="margin-top: 40px;">
                     <div class="content-card">
-                        <h3 class="card-title">Gene Editing Technology</h3>
+                        <h3 class="card-title">Current Research Areas</h3>
                         <p class="card-text">
-                            Utilizing advanced CRISPR-Cas9 systems for precise genetic modifications in hepatocytes. 
-                            Focus on electroporation optimization and delivery efficiency for therapeutic applications.
+                            • CRISPR-Cas9 gene editing optimization<br>
+                            • Clinical-grade electroporation systems<br>
+                            • Primary hepatocyte culture and manipulation<br>
+                            • Inherited metabolic liver disease correction
                         </p>
                     </div>
                     <div class="content-card">
-                        <h3 class="card-title">Cell Engineering</h3>
+                        <h3 class="card-title">Research Impact</h3>
                         <p class="card-text">
-                            Developing novel approaches for cell isolation, culture, and transplantation. 
-                            Creating 3D scaffold systems for enhanced cell viability and function.
-                        </p>
-                    </div>
-                    <div class="content-card">
-                        <h3 class="card-title">Computational Modeling</h3>
-                        <p class="card-text">
-                            Employing numerical simulations and mechanical testing to optimize treatment protocols. 
-                            Using ANSYS and COMSOL for predictive modeling of cellular responses.
+                            Working towards translating gene editing technologies from bench to bedside, 
+                            with focus on developing safer and more effective treatment protocols for 
+                            genetic liver diseases affecting thousands of patients worldwide.
                         </p>
                     </div>
                 </div>
@@ -670,45 +526,43 @@
     </div>
 
     <script>
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // Navigation functionality
+        // Simple navigation functionality
         function initNavigation() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const pageSection = document.querySelectorAll('.page-section');
+            const navLinks = document.querySelectorAll('.nav-link[data-page]');
+            const pageSections = document.querySelectorAll('.page-section');
 
             function showPage(targetPage) {
-                pageSection.forEach(section => {
+                // Hide all sections
+                pageSections.forEach(section => {
                     section.classList.remove('active');
                 });
                 
+                // Remove active class from all nav links
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                 });
 
-                document.getElementById(targetPage).classList.add('active');
-                document.querySelector(`[data-page="${targetPage}"]`).classList.add('active');
+                // Show target section
+                const targetSection = document.getElementById(targetPage);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+
+                // Add active class to current nav link
+                const activeLink = document.querySelector(`[data-page="${targetPage}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
             }
 
-            // Add click event listeners to navigation links
+            // Add click event listeners
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const targetPage = link.getAttribute('data-page');
-                    showPage(targetPage);
+                    if (targetPage) {
+                        showPage(targetPage);
+                    }
                 });
             });
 
@@ -717,29 +571,16 @@
                 element.addEventListener('click', (e) => {
                     e.preventDefault();
                     const targetPage = element.getAttribute('data-page');
-                    showPage(targetPage);
+                    if (targetPage) {
+                        showPage(targetPage);
+                    }
                 });
             });
         }
 
-        // Initialize everything when page loads
+        // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
             initNavigation();
-        });
-
-        // Add dynamic background effect
-        document.addEventListener('mousemove', function(e) {
-            const particles = document.querySelectorAll('.particle');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            particles.forEach((particle, index) => {
-                const speed = (index % 5 + 1) * 0.5;
-                const xOffset = (x - 0.5) * speed;
-                const yOffset = (y - 0.5) * speed;
-                particle.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
-            });
         });
     </script>
 </body>
