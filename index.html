@@ -1,1 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abishek Dhungana - Bioengineering Researcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            color: #333;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .experience-item, .education-item, .publication-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f1f5ff 100%);
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover, .publication-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .item-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .item-location {
+            color: #666;
+            font-style: italic;
+            margin-left: auto;
+        }
+
+        .item-organization {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .item-date {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .publication-authors {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .publication-journal {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .awards-list {
+            list-style: none;
+        }
+
+        .awards-list li {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f1f5ff 100%);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            border-left: 4px solid #764ba2;
+            transition: all 0.3s ease;
+        }
+
+        .awards-list li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(118, 75, 162, 0.15);
+        }
+
+        .summary-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .floating-nav {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active,
+        .nav-dot:hover {
+            background: #667eea;
+            transform: scale(1.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .item-header {
+                flex-direction: column;
+            }
+
+            .item-location {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+
+            .floating-nav {
+                display: none;
+            }
+
+            .section {
+                padding: 25px;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-nav">
+        <div class="nav-dot active" onclick="scrollToSection('header')"></div>
+        <div class="nav-dot" onclick="scrollToSection('summary')"></div>
+        <div class="nav-dot" onclick="scrollToSection('education')"></div>
+        <div class="nav-dot" onclick="scrollToSection('experience')"></div>
+        <div class="nav-dot" onclick="scrollToSection('publications')"></div>
+        <div class="nav-dot" onclick="scrollToSection('skills')"></div>
+    </div>
+
+    <div class="container">
+        <header id="header" class="fade-in">
+            <h1>Abishek Dhungana</h1>
+            <div class="subtitle">Ph.D. Student in Bioengineering | Gene Editing & Transplant Specialist</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Central, Clemson, South Carolina</span>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>adhunga@clemson.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+1-(989)-395-6636</span>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <span>abishek-dhungana</span>
+                </div>
+            </div>
+        </header>
+
+        <section id="summary" class="section fade-in">
+            <h2>Professional Summary</h2>
+            <div class="summary-text">
+                Highly dedicated Ph.D. student majoring in cellular and genetic engineering with specialization in ex-vivo gene editing and transplant. Proficient in a wide range of cutting-edge techniques including electroporation, cell isolation, animal transplant, PCR, antibody staining, and fluorescence imaging. Demonstrated capability of working across diverse fields and thriving in highly collaborative environments, with successful projects spanning gene editing, tissue engineering, numerical simulations, and next-generation polymer-based scaffolds.
+            </div>
+        </section>
+
+        <section id="education" class="section fade-in">
+            <h2>Education</h2>
+            <div class="education-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Ph.D. in Bioengineering</div>
+                        <div class="item-organization">Clemson University</div>
+                        <div class="item-date">May 2024 - Ongoing</div>
+                    </div>
+                    <div class="item-location">South Carolina, USA</div>
+                </div>
+                <div>Advisor: Dr. Renee Cottle</div>
+            </div>
+            <div class="education-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">B.E. in Mechanical Engineering</div>
+                        <div class="item-organization">Nitte Meenakshi Institute of Technology</div>
+                        <div class="item-date">August 2018 - July 2022</div>
+                    </div>
+                    <div class="item-location">Bangalore, India</div>
+                </div>
+                <div><strong>GPA:</strong> 3.902/4.0</div>
+            </div>
+        </section>
+
+        <section id="experience" class="section fade-in">
+            <h2>Research Experience</h2>
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Graduate Research Assistant</div>
+                        <div class="item-organization">The Cottle Group, Clemson University</div>
+                        <div class="item-date">May 2024 - Ongoing</div>
+                    </div>
+                    <div class="item-location">South Carolina, USA</div>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Graduate Teaching Assistant</div>
+                        <div class="item-organization">Department of Civil Engineering, North Dakota State University</div>
+                        <div class="item-date">Jan 2024 - May 2024</div>
+                    </div>
+                    <div class="item-location">North Dakota, USA</div>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Undergraduate Research Intern</div>
+                        <div class="item-organization">Complex Fluid Laboratory, North Dakota State University</div>
+                        <div class="item-date">March 2022 - July 2022</div>
+                    </div>
+                    <div class="item-location">Bangalore, India</div>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Undergraduate Research Intern</div>
+                        <div class="item-organization">Microfluidics and Microscale Transport Processes Laboratory, IIT Guwahati</div>
+                        <div class="item-date">Sep 2021 - Jan 2022</div>
+                    </div>
+                    <div class="item-location">Assam, India</div>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Undergraduate Research Intern</div>
+                        <div class="item-organization">Buradi's Lab, Nitte Meenakshi Institute of Technology</div>
+                        <div class="item-date">Jan 2020 - Aug 2020</div>
+                    </div>
+                    <div class="item-location">Bangalore, India</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="section fade-in">
+            <h2>Publications</h2>
+            <div class="publication-item">
+                <div class="item-title">One shock, not one cure: Electroporation reveals disease-specific constraints in hepatocyte gene editing therapy</div>
+                <div class="publication-authors">Callie Clark, Menam Pokhrel, Benjamin Aurthur, Pramita Suresh, Ilayda Ates, Justin Gibson, <strong>Abishek Dhungana</strong>, Ryan Mehlem, Andrew Boysia, Mugdha V. Padalkar, Achala Pokhrel, Jing Echesabal-Chen, Anne Vonada, Alexis Stamatikos, Olga V. Savinova, Markus Grompe, Renee N. Cottle</div>
+                <div class="publication-journal">Under Review</div>
+                <div class="item-date">June 2025</div>
+            </div>
+            <div class="publication-item">
+                <div class="item-title">Validation of clinical-grade electroporation systems for CRISPR-Cas9 mediated gene therapy in primary hepatocytes for the correction of inherited metabolic liver disease</div>
+                <div class="publication-authors">Justin Gibson*, <strong>Abishek Dhungana*</strong>, Menam Pokhrel, Benjamin Arthur, Pramita Suresh, Olumide Adebayo, Renee Cottle (*Equal Contribution)</div>
+                <div class="item-date">March 2025</div>
+            </div>
+            <div class="publication-item">
+                <div class="item-title">Impact of Bifurcation and Bifurcation Angle on the Hemodynamics of Coronary Arteries</div>
+                <div class="publication-authors"><strong>Abishek Dhungana</strong>, Abdulrajak Buradi, Prabin Dahal, Bhaskar Jyoti Bora</div>
+                <div class="item-date">April 2023</div>
+            </div>
+            <div class="publication-item">
+                <div class="item-title">Influence of Blockage on Hemodynamics of Coronary Arteries: A Numerical Investigation</div>
+                <div class="publication-authors">Prabin Dahal, <strong>Abishek Dhungana</strong>, Aditya Vikram, Abdulrajak Buradi, B. A. Praveena, N. Kapilan</div>
+                <div class="item-date">July 2023</div>
+            </div>
+        </section>
+
+        <section id="skills" class="section fade-in">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Cell Culture</div>
+                <div class="skill-tag">Gene Editing</div>
+                <div class="skill-tag">Cell Isolation</div>
+                <div class="skill-tag">3D Scaffolds</div>
+                <div class="skill-tag">Mechanical Testing</div>
+                <div class="skill-tag">Numerical Simulation</div>
+                <div class="skill-tag">Fluorescence Imaging</div>
+                <div class="skill-tag">Animal Study</div>
+                <div class="skill-tag">CATIA V5</div>
+                <div class="skill-tag">SolidWorks</div>
+                <div class="skill-tag">ANSYS</div>
+                <div class="skill-tag">COMSOL</div>
+                <div class="skill-tag">PCR</div>
+                <div class="skill-tag">Electroporation</div>
+                <div class="skill-tag">SEM Microscopy</div>
+                <div class="skill-tag">Scaffold Fabrication</div>
+            </div>
+        </section>
+
+        <section id="awards" class="section fade-in">
+            <h2>Awards & Recognition</h2>
+            <ul class="awards-list">
+                <li><strong>Gold Medalist:</strong> Experimental Methods in Fluid Mechanics, NPTEL-IIT Guwahati</li>
+                <li><strong>Best Paper Presentation Award:</strong> "Biodiesel: A renewable energy source: A review" at National Conference on Emerging Trends in Mechanical Engineering</li>
+                <li><strong>Second Prize:</strong> National level quiz competition on HVAC and Thermal Engineering, ASHRAE</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        // Add fade-in animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = `${Math.random() * 0.3}s`;
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        });
+
+        document.querySelectorAll('.section').forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll navigation
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Update active nav dot
+            document.querySelectorAll('.nav-dot').forEach(dot => dot.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Update active nav dot on scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['header', 'summary', 'education', 'experience', 'publications', 'skills'];
+            const navDots = document.querySelectorAll('.nav-dot');
+            
+            let current = '';
+            sections.forEach((section, index) => {
+                const element = document.getElementById(section);
+                const rect = element.getBoundingClientRect();
+                if (rect.top <= 100) {
+                    current = index;
+                }
+            });
+            
+            navDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === current);
+            });
+        });
+
+        // Add hover effects to skill tags
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', () => {
+                tag.style.transform = 'scale(1.05) rotate(2deg)';
+            });
+            
+            tag.addEventListener('mouseleave', () => {
+                tag.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>
